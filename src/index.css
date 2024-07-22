@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.gradient-border {
+    position: relative;
+    border-radius: 8px;
+}
+  
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    padding: 2px;
+    background: linear-gradient(to right, #969696, #343434);
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out; 
+    mask-composite: exclude; 
+}
+
+.gradient-border > * {
+    position: relative;
+    z-index: 1;
+}
+
+.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+.animate-out {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+.post-animate-in {
+    width: 120px;
+    transition: opacity 300ms ease-out, width 300ms ease-out;
+}
+
+.post-animate-out {
+    width: 111px;
+    transition: opacity 300ms ease-out, width 300ms ease-out;
+}
+
+.margin-animate-in {
+    margin-top: -8px;
+    transition: opacity 300ms ease-out, margin-top 300ms ease-out;
+}
+
+.margin-animate-out {
+    margin-top: 0;
+    transition: opacity 300ms ease-out, margin-top 300ms ease-out;
+}
